@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :admin, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :admin])
   end
 
   def respond_with(resource, _opts = {})
