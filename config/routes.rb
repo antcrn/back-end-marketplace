@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :avatars, only: [:create, :update, :destroy]
   resources :real_estates
   devise_for :users,
                 controllers:
