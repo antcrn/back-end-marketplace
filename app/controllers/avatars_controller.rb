@@ -6,6 +6,8 @@ class AvatarsController < ApplicationController
   def create
     @avatar = Avatar.new(avatar_params)
     @avatar.user_id = current_user.id
+    current_user.avatar.attach(params[:user_avatar])
+
     if @avatar.save
       render json: @avatar, status: :created, location: @avatar
     else

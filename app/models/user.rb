@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { in: 3..20 }
 
   has_many :real_estates
-  has_one :avatar
+  has_one_attached :avatar
 end
