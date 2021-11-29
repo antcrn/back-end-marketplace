@@ -1,5 +1,6 @@
 class RealEstatesController < ApplicationController
   before_action :set_real_estate, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   # GET /real_estates
   def index

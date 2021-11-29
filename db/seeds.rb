@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-User.create(email: "admin@email.com", password: "123456", username: Faker::Internet.username(specifier: 3..20), first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone: Faker::PhoneNumber.phone_number, admin: true)
+User.create(email: "admin@email.com", password: "123456", username: Faker::Internet.username(specifier: 3..20), admin: true)
 
 puts "admin created"
 
 5.times do
-  User.create(email: Faker::Internet.email, password: "123456", admin: false, username: Faker::Internet.username(specifier: 3..20), first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone: Faker::PhoneNumber.phone_number)
+  User.create(email: Faker::Internet.email, password: "123456", admin: false, username: Faker::Internet.username(specifier: 3..20))
 end
 
 puts "5 users created"

@@ -1,14 +1,18 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create, :update]
 
   def create
     super
   end
 
+  def update
+    super
+  end
+
   private
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name, :phone, :admin, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :admin, :avatar])
   end
 
   def respond_with(resource, _opts = {})
