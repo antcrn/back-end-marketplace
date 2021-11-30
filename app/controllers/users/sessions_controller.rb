@@ -10,7 +10,9 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def login_succes
-    render json: { message: 'You are logged in.', user: @user }, status: :ok
+    @avatar_id = @user.avatar.user_avatar.record.id
+
+    render json: { message: 'You are logged in.', user: @user, avatar_id: @avatar_id }, status: :ok
   end
 
   def login_failure
