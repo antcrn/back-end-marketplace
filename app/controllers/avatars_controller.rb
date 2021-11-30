@@ -1,10 +1,21 @@
 class AvatarsController < ApplicationController
-  before_action :set_avatar, only: [:update, :destroy]
-  before_action :authenticate_user!
+  before_action :set_avatar, only: [:show, :update, :destroy]
+
+  # GET /avatars
+  def index
+    @avatars = Avatar.all
+
+    render json: @avatars
+  end
+
+  # GET /avatars/1
+  def show
+    render json: @avatar
+  end
 
   # POST /avatars
   def create
-    current_user.avatar.attach(params[:user_avatar])
+    @avatar = Avatar.new(avatar_params)
 
     if @avatar.save
       render json: @avatar, status: :created, location: @avatar
@@ -35,6 +46,6 @@ class AvatarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def avatar_params
-      params.permit(:user_avatar)
+      params.permit(:user_avatar, :user_id)
     end
 end
