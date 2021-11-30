@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-User.create(email: "admin@email.com", password: "123456", username: Faker::Internet.username(specifier: 3..20), admin: true)
+User.create(email: "admin@email.com", password: "123456", username: "admin", admin: true)
 
 puts "admin created"
 
