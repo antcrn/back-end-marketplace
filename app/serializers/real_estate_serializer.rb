@@ -3,9 +3,13 @@ class RealEstateSerializer < ActiveModel::Serializer
   attributes :name, :price, :sold, :description, :city_id, :user_id, :images
   def images
     if object.images.attached?
-      {
-        url: rails_blob_url(object.images, only_path: true)
-      }
+      arr = []
+      object.images.each do |img|
+        arr << {
+          url: rails_blob_url(object.images, only_path: true)
+        }
+      end
+    arr
     end
   end
 end
