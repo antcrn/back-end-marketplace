@@ -9,9 +9,10 @@ class Users::SessionsController < Devise::SessionsController
   login_failure
   end
 
-  def login_succes
-    @avatar_id = @user.avatar.user_avatar.record.id
-
+  def login_success
+    @avatar_id
+    @avatar_id = @user.avatar.user_avatar.record.id if @user.avatar
+    
     render json: { message: 'You are logged in.', user: @user, avatar_id: @avatar_id }, status: :ok
   end
 
