@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :avatars
-  resources :real_estates
+  resources :real_estates 
+  resources :users, only: [:show, :index]
   devise_for :users,
                 controllers:
                   {
