@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  root "real_estates#index"
+
   resources :avatars
-  resources :real_estates
+  resources :real_estates 
+  resources :users, only: [:show, :index]
   devise_for :users,
                 controllers:
                   {
