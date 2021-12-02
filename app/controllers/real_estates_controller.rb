@@ -11,7 +11,8 @@ class RealEstatesController < ApplicationController
 
   # GET /real_estates/1
   def show
-    render json: { data: @real_estate }
+    @user = User.find(@real_estate.user_id)
+    render json: { data: {real_estate: @real_estate, user: @user }}
   end
 
   # POST /real_estates
