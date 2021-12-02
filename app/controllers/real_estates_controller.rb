@@ -12,7 +12,7 @@ class RealEstatesController < ApplicationController
   # GET /real_estates/1
   def show
     @user = User.find(@real_estate.user_id)
-    render json: { data: {real_estate: @real_estate, user: @user }}
+    render json: { data: {real_estate: @realEstate, user: @user }}
   end
 
   # POST /real_estates
