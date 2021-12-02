@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index 
     @users = User.all
     render json: @users
@@ -10,5 +11,17 @@ class UsersController < ApplicationController
     render json: {user: @user, real_estates: @real_estates}
   end
 
+  def update 
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      render json: @user
+    else
+      puts @user.errors.message
+    end
+  end
 
+  private
+  def user_params
+    return params.permit(:username, :id, :email, :password, :password_confirmation, :img_id)
+  end
 end
