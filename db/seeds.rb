@@ -17,11 +17,11 @@ end
 
 puts "5 users created"
 
-5.times do
+10.times do
   City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
 end
 
-puts "5 cities created"
+puts "10 cities created"
 
 15.times do 
   RealEstate.create(name: Faker::Lorem.sentence, price: rand(10000..1000000), sold: false, description: Faker::Lorem.paragraph, city_id: rand(1..5), user_id: rand(1..5))
