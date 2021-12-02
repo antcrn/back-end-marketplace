@@ -48,6 +48,6 @@ class RealEstatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def real_estate_params
-      params.permit(:name, :price, :sold, :description, :city_id, :user_id, images: [])
+      params.permit(:name, :price, :sold, :description, :city_id, :user_id, :image_url, images: [])
     end
 end
