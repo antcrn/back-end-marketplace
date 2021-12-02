@@ -6,13 +6,13 @@ class RealEstatesController < ApplicationController
   def index
     @real_estates = RealEstate.all
 
-    render json: { data: @real_estates }
+    render json: { realEstate: @real_estates }
   end
 
   # GET /real_estates/1
   def show
     @user = User.find(@real_estate.user_id)
-    render json: { data: {realEstate: @real_estate, user: @user }}
+    render json: { realEstate: @real_estate, user: @user }
   end
 
   # POST /real_estates
