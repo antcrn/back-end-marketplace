@@ -1,6 +1,6 @@
 class RealEstatesController < ApplicationController
+  respond_to :json
   before_action :set_real_estate, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   # GET /real_estates
   def index
@@ -48,6 +48,6 @@ class RealEstatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def real_estate_params
-      params.permit(:name, :price, :sold, :description, :city_id, :user_id, :images)
+      params.permit(:name, :price, :sold, :description, :city_id, :user_id, images: [])
     end
 end
