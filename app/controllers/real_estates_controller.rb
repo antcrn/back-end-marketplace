@@ -6,7 +6,7 @@ class RealEstatesController < ApplicationController
   def index
     @real_estates = RealEstate.all
 
-    render json: { @real_estates }
+    render json: @real_estates
   end
 
   # GET /real_estates/1
