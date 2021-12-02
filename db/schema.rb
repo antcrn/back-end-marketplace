@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_112627) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username"
+    t.string "img_id"
     t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
