@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :avatars
   resources :real_estates 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :update]
   devise_for :users,
                 controllers:
                   {
