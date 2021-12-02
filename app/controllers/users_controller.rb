@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @real_estates = RealEstate.where(user_id: @user.id)
     render json: {user: @user, real_estates: @real_estates}
   end
-
   def update 
     @user = User.find(params[:id])
     if @user.update(user_params)
