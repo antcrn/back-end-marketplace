@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update 
     @user = User.find(params[:id])
     if @user.update(user_params)
-      render json: @user
+      render json: { user: @user }
     else
       puts @user.errors.message
     end
